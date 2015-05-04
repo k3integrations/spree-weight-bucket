@@ -5,22 +5,27 @@ Gem::Specification.new do |s|
   s.version     = '0.1'
   s.summary     = 'Weight buckets for Spree shipping'
   s.description = 'A Spree extension for calculating shipping based on weight buckets'
-  s.required_ruby_version = '>= 1.8.7'
+  s.required_ruby_version = '>= 2.0.0'
 
   s.author            = 'Terje Tjervaag'
   s.email             = 'terje@example.com'
   s.homepage          = 'http://github.com/terje'
 
-  #s.files         = `git ls-files`.split("\n")
-  #s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
+  #s.files       = `git ls-files`.split("\n")
+  #s.test_files  = `git ls-files -- {test,spec,features}/*`.split("\n")
   s.require_path = 'lib'
   s.requirements << 'none'
 
-  s.add_dependency 'spree_core', '>= 1.0.0'
+  s.add_dependency 'spree_core', '~> 3.0.0'
 
-  s.add_development_dependency 'capybara', '1.0.1'
-  s.add_development_dependency 'factory_girl'
+  s.add_development_dependency 'capybara', '~> 2.4'
+  s.add_development_dependency 'coffee-rails'
+  s.add_development_dependency 'database_cleaner'
+  s.add_development_dependency 'factory_girl', '~> 4.5'
   s.add_development_dependency 'ffaker'
-  s.add_development_dependency 'rspec-rails',  '~> 2.7'
+  s.add_development_dependency 'rspec-rails',  '~> 3.1'
+  s.add_development_dependency 'sass-rails', '~> 5.0.0.beta1'
+  s.add_development_dependency 'selenium-webdriver'
+  s.add_development_dependency 'simplecov'
   s.add_development_dependency 'sqlite3'
 end

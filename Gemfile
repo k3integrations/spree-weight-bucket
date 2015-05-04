@@ -1,13 +1,11 @@
-source 'http://rubygems.org'
+source 'https://rubygems.org'
 
-group :test do
-  gem 'ffaker'
+group :development do
+  gem 'byebug'
 end
 
-if RUBY_VERSION < "1.9"
-  gem "ruby-debug"
-else
-  gem "ruby-debug19"
-end
+gem 'spree', github: 'spree/spree', branch: '3-0-stable'
+# Provides basic authentication functionality for testing parts of your engine
+gem 'spree_auth_devise', github: 'spree/spree_auth_devise', branch: '3-0-stable'
 
 gemspec
