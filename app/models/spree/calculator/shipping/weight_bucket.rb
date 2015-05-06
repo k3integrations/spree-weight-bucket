@@ -24,17 +24,17 @@ module Spree
         return true
       end
 
-      def compute(order)
+      def compute_package(package)
+        total_weight = package.contents.sum { |i| i.quantity * (i.variant.weight || preferred_default_weight.to_f) }
+        compute_from_weight total_weight
+      end
+
+      def compute_from_weight(total_weight)
         prices = self.preferred_price_table.nil? ? [] : self.preferred_price_table.split
         weights = self.preferred_weight_table.nil? ? [] : self.preferred_weight_table.split
 
         weight_prices = weights.to_enum(:each_with_index).map do |weight, i|
           {:weight => weight.to_f, :price => prices[i].to_f}
-        end
-
-        total_weight = 0
-        order.line_items.each do |item|
-          total_weight += item.quantity * (item.variant.weight || self.preferred_default_weight.to_f)
         end
 
         shipping_price = 0
